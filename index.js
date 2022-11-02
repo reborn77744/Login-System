@@ -53,6 +53,6 @@ app.get("/", (req, res) => {
   res.render("index", { user: req.user });
 });
 
-app.listen(5000, hostName, () => {
-  console.log(`Server running at http://${hostname}:5000/`);
+app.listen(3000, hostName, () => {
+  console.log(`Server running at http://${hostname}:3000/`);
 });
