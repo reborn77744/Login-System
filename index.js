@@ -10,6 +10,10 @@ const passport = require("passport");
 const session = require("express-session");
 const flash = require("connect-flash");
 
+//deploy to Railway
+const hostName = "0.0.0.0";
+const port = 8000;
+
 mongoose
   .connect(process.env.DB_CONNECT, {
     //記得要把DB_CONNECT裡的<password>替換成MongoDB Atlas上的user密碼
@@ -50,6 +54,6 @@ app.get("/", (req, res) => {
   res.render("index", { user: req.user });
 });
 
-app.listen(5000, () => {
+app.listen(port, hostName, () => {
   console.log(`Server running on port 5000.`);
 });
