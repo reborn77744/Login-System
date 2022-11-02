@@ -11,8 +11,7 @@ const session = require("express-session");
 const flash = require("connect-flash");
 
 //deploy to Railway
-const hostName = "0.0.0.0";
-const port = 8000;
+// const hostName = "0.0.0.0";
 
 mongoose
   .connect(process.env.DB_CONNECT, {
@@ -54,6 +53,6 @@ app.get("/", (req, res) => {
   res.render("index", { user: req.user });
 });
 
-app.listen(port, hostName, () => {
+app.listen($PORT, hostName, () => {
   console.log(`Server running on port 5000.`);
 });
