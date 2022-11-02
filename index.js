@@ -11,7 +11,8 @@ const session = require("express-session");
 const flash = require("connect-flash");
 
 mongoose
-  .connect(process.env.DB_CONNECT, { //記得要把DB_CONNECT裡的<password>替換成MongoDB Atlas上的user密碼
+  .connect(process.env.DB_CONNECT, {
+    //記得要把DB_CONNECT裡的<password>替換成MongoDB Atlas上的user密碼
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -49,6 +50,6 @@ app.get("/", (req, res) => {
   res.render("index", { user: req.user });
 });
 
-app.listen(8080, () => {
-  console.log("Server running on port 8080.");
+app.listen(port, () => {
+  console.log(`Server running on port ${port}.`);
 });
