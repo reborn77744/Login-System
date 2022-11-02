@@ -50,6 +50,6 @@ app.get("/", (req, res) => {
   res.render("index", { user: req.user });
 });
 
-app.listen(port, () => {
-  console.log(`Server running on port ${port}.`);
+app.listen(5000, () => {
+  console.log(`Server running on port 5000.`);
 });
