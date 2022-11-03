@@ -36,6 +36,9 @@ app.use(
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,
+    store: new MemoryStore({
+      checkPeriod: 86400000, // prune expired entries every 24h
+    }),
   })
 );
 app.use(passport.initialize());
