@@ -9,6 +9,7 @@ require("./config/passport");
 const passport = require("passport");
 const session = require("express-session");
 const flash = require("connect-flash");
+const MemoryStore = require("memorystore")(session);
 
 //deploy to Railway
 const hostName = "0.0.0.0";
