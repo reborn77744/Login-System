@@ -53,6 +53,6 @@ app.get("/", (req, res) => {
   res.render("index", { user: req.user });
 });
 
-app.listen(8080, hostName, () => {
-  console.log(`Server running at http://${hostname}:3000/`);
+app.listen(8080, () => {
+  console.log(`Server running at port 8080.`);
 });
