@@ -2,7 +2,7 @@ const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20");
 const User = require("../models/user-model");
 const LocalStrategy = require("passport-local");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 
 passport.serializeUser((user, done) => {
   console.log("Serializing user now");
@@ -52,7 +52,8 @@ passport.use(
     (accessToken, refreshToken, profile, done) => {
       console.log(profile);
       User.findOne({ googleID: profile.id }).then((foundUser) => {
-        if (foundUser) { //加一個if確保該使用者存在，因為foundUser可能是個null
+        if (foundUser) {
+          //加一個if確保該使用者存在，因為foundUser可能是個null
           console.log("User already exist");
           done(null, foundUser);
         } else {
